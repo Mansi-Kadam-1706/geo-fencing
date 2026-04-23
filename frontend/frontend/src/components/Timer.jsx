@@ -18,7 +18,7 @@ function Timer({ expiresAt, onExpire }) {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [expiresAt])
+  }, [expiresAt,onExpire])
 
   const minutes = Math.floor(timeLeft / 60)
   const seconds = timeLeft % 60
