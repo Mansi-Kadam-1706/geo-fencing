@@ -1,0 +1,109 @@
+/* ── PAGE ── */
+.page { min-height: 100vh; background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+
+/* ── HEADER ── */
+.header { display: flex; justify-content: space-between; align-items: center; background: #1a73e8; padding: 15px 25px; color: white; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.logo { font-size: 28px; }
+.header-title { font-size: 18px; font-weight: bold; }
+.header-sub { font-size: 12px; opacity: 0.8; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.user-badge { background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 20px; font-size: 14px; }
+.logout-btn { padding: 8px 16px; background: white; color: #1a73e8; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+/* ── CONTENT ── */
+.content { max-width: 960px; margin: 0 auto; padding: 25px 20px; }
+
+/* ── ERROR ── */
+.error-box { display: flex; justify-content: space-between; align-items: center; background: #ffebee; color: #c62828; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ef9a9a; }
+.close-btn { background: none; border: none; color: #c62828; cursor: pointer; font-size: 16px; }
+
+/* ── TABS ── */
+.tab-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab { padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer; background: white; color: #555; font-weight: 600; font-size: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.tab.active { background: #1a73e8; color: white; }
+
+/* ── CARD ── */
+.card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
+.card-title { font-size: 18px; font-weight: bold; color: #333; margin: 0 0 5px 0; }
+.card-sub { color: #888; font-size: 13px; margin-bottom: 20px; }
+
+/* ── FORM ── */
+.form-group { margin-bottom: 15px; }
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #555; }
+.input { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 14px; box-sizing: border-box; outline: none; }
+.select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 14px; box-sizing: border-box; background: white; }
+
+/* ── BUTTONS ── */
+.primary-btn { width: 100%; padding: 12px; background: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; font-weight: 600; }
+.primary-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.regen-btn { flex: 1; padding: 10px; background: #ff9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+.report-btn { flex: 1; padding: 10px; background: #34a853; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+.new-session-btn { flex: 1; padding: 10px; background: #ea4335; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+.location-btn { width: 100%; padding: 10px; background: #34a853; color: white; border: none; border-radius: 8px; cursor: pointer; margin-bottom: 12px; font-size: 14px; font-weight: 600; }
+.add-venue-btn { padding: 8px 16px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.manual-btn { padding: 5px 10px; background: #1a73e8; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; }
+.refresh-btn { padding: 10px 14px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 16px; }
+
+/* ── COUNTER ── */
+.counter-row { display: flex; gap: 15px; margin-bottom: 20px; }
+.counter-card { flex: 1; background: #e8f5e9; border-radius: 12px; padding: 20px; text-align: center; }
+.counter-card.absent { background: #ffebee; }
+.counter-card.total { background: #e3f2fd; }
+.counter-number { font-size: 48px; font-weight: bold; color: #2e7d32; line-height: 1; }
+.counter-number.absent { color: #c62828; }
+.counter-number.total { color: #1565c0; }
+.counter-label { color: #555; font-size: 13px; margin-top: 5px; }
+
+/* ── SESSION INFO ── */
+.session-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.session-subject { font-size: 20px; font-weight: bold; color: #333; margin: 0; }
+.session-venue { color: #888; margin: 4px 0 0 0; font-size: 13px; }
+.active-badge { background: #e8f5e9; color: #2e7d32; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+.action-row { display: flex; gap: 10px; margin-top: 15px; }
+
+/* ── EXPIRED ── */
+.expired-box { text-align: center; background: #ffebee; padding: 20px; border-radius: 10px; margin-bottom: 15px; }
+.expired-text { color: #c62828; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+
+/* ── WARNING ── */
+.warning-box { background: #fff3e0; color: #e65100; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; }
+.success-box { background: #e8f5e9; color: #2e7d32; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 10px; font-weight: 600; }
+
+/* ── VENUE ── */
+.venue-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.venue-form { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
+.form-title { margin: 0 0 15px 0; color: #333; }
+.venue-list { display: flex; flex-direction: column; gap: 10px; }
+.venue-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e0e0e0; }
+.venue-icon { font-size: 24px; }
+.venue-info { flex: 1; }
+.venue-name { font-weight: 600; color: #333; margin: 0 0 3px 0; }
+.venue-coords { color: #888; font-size: 12px; margin: 0; }
+.venue-badge { background: #e3f2fd; color: #1565c0; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+/* ── EMPTY STATE ── */
+.empty-state { text-align: center; padding: 40px 20px; }
+.empty-icon { font-size: 48px; margin: 0 0 10px 0; }
+.empty-text { font-weight: 600; color: #333; font-size: 16px; margin: 0 0 5px 0; }
+.empty-sub { color: #888; font-size: 13px; margin: 0; }
+
+/* ── REPORT ── */
+.summary-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.summary-card { flex: 1; background: #f8f9fa; border-radius: 10px; padding: 15px; text-align: center; }
+.summary-num { font-size: 28px; font-weight: bold; color: #333; }
+.summary-label { color: #888; font-size: 12px; margin-top: 3px; }
+
+/* ── TABLE ── */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead tr { background: #f5f5f5; }
+th { padding: 12px 15px; text-align: left; font-weight: 600; color: #555; border-bottom: 2px solid #e0e0e0; }
+td { padding: 12px 15px; color: #333; border-bottom: 1px solid #f0f0f0; }
+.status-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.zone-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+/* ── SELECT ROW ── */
+.select-row { display: flex; gap: 10px; align-items: flex-end; }
+.select-row .form-group { flex: 1; }

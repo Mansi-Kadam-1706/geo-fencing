@@ -1,0 +1,73 @@
+/* ── PAGE ── */
+.s-page { min-height: 100vh; background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+
+/* ── HEADER ── */
+.s-header { display: flex; justify-content: space-between; align-items: center; background: #1a73e8; padding: 15px 25px; color: white; }
+.s-header-left { display: flex; align-items: center; gap: 12px; }
+.s-logo { font-size: 28px; }
+.s-header-title { font-size: 18px; font-weight: bold; }
+.s-header-sub { font-size: 12px; opacity: 0.8; }
+.s-logout-btn { padding: 8px 16px; background: white; color: #1a73e8; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+/* ── CONTENT ── */
+.s-content { max-width: 600px; margin: 0 auto; padding: 25px 20px; }
+
+/* ── TABS ── */
+.s-tab-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+.s-tab { flex: 1; padding: 10px; border: none; border-radius: 8px; cursor: pointer; background: white; color: #555; font-weight: 600; font-size: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.s-tab.active { background: #1a73e8; color: white; }
+
+/* ── CARD ── */
+.s-card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.s-card-title { font-size: 18px; font-weight: bold; color: #333; margin: 0 0 20px 0; }
+
+/* ── TOGGLE ── */
+.s-toggle-box { display: flex; gap: 10px; margin-bottom: 25px; }
+.s-toggle-btn { flex: 1; padding: 10px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; background: white; color: #555; font-weight: 600; font-size: 14px; }
+.s-toggle-btn.active { border-color: #1a73e8; background: #e8f0fe; color: #1a73e8; }
+
+/* ── SCAN BOX ── */
+.s-scan-box { text-align: center; padding: 30px 20px; }
+.s-scan-icon { font-size: 60px; margin-bottom: 15px; }
+.s-hint { color: #888; margin-bottom: 20px; font-size: 14px; }
+.s-scanner-box { width: 100%; }
+.s-cancel-btn { width: 100%; padding: 10px; background: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; font-size: 14px; font-weight: 600; }
+
+/* ── TYPE BOX ── */
+.s-type-box { padding: 10px 0; }
+.s-input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; margin-bottom: 15px; text-align: center; letter-spacing: 3px; font-weight: bold; }
+
+/* ── BUTTONS ── */
+.s-primary-btn { width: 100%; padding: 14px; background: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600; }
+.s-primary-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.s-back-btn { margin-top: 15px; padding: 8px 20px; background: #888; color: white; border: none; border-radius: 6px; cursor: pointer; }
+
+/* ── LOADING ── */
+.s-loading-box { text-align: center; padding: 30px; color: #1a73e8; }
+.s-spinner { font-size: 36px; margin-bottom: 10px; }
+
+/* ── STATUS ── */
+.s-status-box { text-align: center; padding: 30px; border-radius: 12px; border: 2px solid; }
+.s-status-box.success { background: #e8f5e9; border-color: #4caf50; }
+.s-status-box.error { background: #ffebee; border-color: #f44336; }
+.s-status-icon { font-size: 48px; margin-bottom: 10px; }
+.s-status-message { font-size: 18px; font-weight: bold; margin: 0 0 10px 0; }
+.s-status-message { color: #333; }
+.s-status-detail { color: #555; margin: 5px 0; }
+
+/* ── SUMMARY ── */
+.s-summary-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.s-summary-card { flex: 1; background: #f5f5f5; border-radius: 10px; padding: 15px; text-align: center; }
+.s-summary-card.present { background: #e8f5e9; }
+.s-summary-card.percent { background: #e3f2fd; }
+.s-summary-num { font-size: 28px; font-weight: bold; color: #333; }
+.s-summary-label { color: #888; font-size: 12px; margin-top: 3px; }
+
+/* ── TABLE ── */
+.s-table-wrapper { overflow-x: auto; }
+.s-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.s-table th { padding: 10px 12px; background: #f5f5f5; text-align: left; font-weight: 600; color: #555; border-bottom: 2px solid #e0e0e0; }
+.s-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; color: #333; }
+
+/* ── EMPTY ── */
+.s-empty { text-align: center; padding: 30px; color: #888; }
