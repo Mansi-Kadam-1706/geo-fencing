@@ -25,7 +25,7 @@ const attendanceSchema = new mongoose.Schema({
   },
   zone: {
     type: String,
-    enum: ['INSIDE', 'BORDER', 'EDGE'],
+    enum: ['INSIDE', 'BORDER', 'EDGE', 'MANUAL'],
     default: 'INSIDE' // geofence zone detection
   },
   distance:{
