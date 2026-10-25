@@ -1,0 +1,42 @@
+Issue Id,Issue Type,Summary,Epic Name,Description,Priority,Assignee,Sprint,Labels,Parent Id
+1,Epic,Authentication & Roles,Authentication & Roles,Register/login for professors and students with JWT and role-based routing.,High,,,,
+2,Epic,Venue & Geofence Management,Venue & Geofence Management,"Professors define venues (lat, long, radius) that act as the geofence.",High,,,,
+3,Epic,Session & QR,Session & QR,"Create attendance sessions per venue/subject with a short-lived, regenerable QR.",High,,,,
+4,Epic,Student Attendance Marking,Student Attendance Marking,"Scan QR or enter code, verify GPS against the geofence, classify zone, bind device.",High,,,,
+5,Epic,Reports & History,Reports & History,"Live session report, manual marking, student attendance history.",High,,,,
+6,Epic,DevOps & Quality,DevOps & Quality,"Jira, Git workflow, Docker, repo cleanup, testing, documentation.",High,,,,
+7,Story,Register page and API (professor/student),,"UI exists (Register.jsx). Verify roll_no/role fields, validation and error messages.",High,mansi,Sprint 1,"frontend,backend",1
+8,Story,Login with JWT and token storage,,"UI exists (Login.jsx). Verify token handling, expiry and logout.",High,mansi,Sprint 1,"frontend,backend",1
+9,Story,Role-based protected routes,,ProtectedRoute exists in App.js. Test student cannot open /professor and vice versa; also enforce roles on the backend.,High,aakansha,Sprint 1,"frontend,backend",1
+10,Story,"Add venue form (name, lat, long, radius)",,UI exists. Add validation for coordinate ranges and radius limits.,High,aakansha,Sprint 1,"frontend,backend",2
+11,Story,'Use my current location' for venue coordinates,,Exists via navigator.geolocation. Handle denied permission and low accuracy.,Medium,aakansha,Sprint 1,frontend,2
+12,Story,List venues endpoint and dropdown,,GET /venue/all feeding the session form.,Medium,krishna,Sprint 1,backend,2
+13,Story,Create session (venue + subject),,"POST /session/create returns session_id, QR token and expiry.",High,krishna,Sprint 2,"frontend,backend",3
+14,Story,QR display with expiry timer,,QRDisplay and Timer components. Verify timer matches server expiry (clock skew).,High,krishna,Sprint 2,frontend,3
+15,Story,Regenerate QR after expiry,,PUT /session/regenerate/:id. Old token must be invalidated.,High,pratika,Sprint 2,backend,3
+16,Story,QR scanner flow (html5-qrcode),,"Scan, extract token (JSON or plain), call mark API. Test on real phones.",High,pratika,Sprint 2,frontend,4
+17,Story,Manual session-code entry fallback,,Enter-code path for when the camera fails.,Medium,pratika,Sprint 2,frontend,4
+18,Story,GPS capture and geofence distance check,,getLocation.js sends lat/long; server computes distance to venue.,High,mansi,Sprint 2,"frontend,backend",4
+19,Story,Zone classification (INSIDE / BORDER / EDGE),,"Implemented in backend/utils/geofence.js: INSIDE <=70% of radius, BORDER <=90%, EDGE <=100%, else OUTSIDE (rejected). Document the thresholds and add unit tests at each boundary.",High,mansi,Sprint 2,backend,4
+20,Story,Device binding (device_id) to block proxy attendance,,getDeviceId is localStorage-based and easy to bypass. Decide the threat model and harden or document the limit.,Medium,aakansha,Sprint 3,"frontend,backend",4
+21,Story,Reject duplicate and expired-token attendance,,One mark per student per session; clear error messages.,High,krishna,Sprint 3,backend,4
+22,Story,Live attendance report for a session,,GET /reports/:session_id polled every 5s. Consider cleanup of the interval and load.,High,pratika,Sprint 3,"frontend,backend",5
+23,Story,Professor manual mark for a student,,POST /reports/manual-mark; zone = MANUAL.,Medium,pratika,Sprint 3,"frontend,backend",5
+24,Story,Implement AttendanceTable component,,components/AttendanceTable.jsx is empty. Extract the report table from ProfessorDashboard.,Medium,mansi,Sprint 3,frontend,5
+25,Story,Student attendance history and percentage,,GET /attendance/my with totals and records.,Medium,aakansha,Sprint 3,"frontend,backend",5
+26,Story,Track backend source in the repo (done in commit 3529072),,Backend is now committed. Verify a fresh clone runs end to end with docker compose.,Medium,krishna,Sprint 1,devops,6
+27,Story,Remove committed .env and rely on build args,,frontend .env is tracked. Keep a .env.example instead.,High,krishna,Sprint 1,devops,6
+28,Story,"Set up Jira board, epics and sprints",,"Import this CSV, assign members, create Sprint 1-3.",High,mansi,Sprint 1,devops,6
+29,Story,"Git workflow: branches, PRs, Jira keys in commits",,"main/dev, feature/GEO-n-name branches, PR review by a teammate.",High,aakansha,Sprint 1,devops,6
+30,Story,"Dockerize frontend (Dockerfile, nginx, compose)",,Multi-stage build with SPA fallback; docker compose up on localhost:3000.,High,krishna,Sprint 3,devops,6
+31,Story,Dockerize backend and add DB service to compose,,"backend/Dockerfile and a mongo service in docker-compose.yml. Needs PORT, MONGO_URI and JWT_SECRET env vars.",High,pratika,Sprint 3,devops,6
+32,Story,CORS check for localhost origin,,Confirm the Render backend allows http://localhost:3000.,Medium,pratika,Sprint 3,"backend,devops",6
+33,Story,Test on real devices over HTTPS,,Geolocation and camera need HTTPS or localhost. Test phones via the Vercel URL or a tunnel.,High,aakansha,Sprint 3,testing,6
+34,Story,Fix and expand frontend tests,,App.test.js is the CRA default and likely failing. Add tests for ProtectedRoute and getLocation.,Medium,mansi,Sprint 3,testing,6
+35,Story,"Project report, README and demo script",,"Architecture, screenshots of Jira board and Git history, run steps.",High,pratika,Sprint 3,docs,6
+36,Bug,BUG: POST /api/reports/manual-mark route does not exist,,"reportController.manualMark is written but never exported or registered in routes/reportRoutes.js, so the professor's manual-mark button gets 404.",Highest,pratika,Sprint 2,"backend,bug",5
+37,Bug,BUG: Attendance zone enum rejects 'MANUAL',,"models/Attendance.js enum is INSIDE/BORDER/EDGE only, so manual marking fails validation once the route exists. Add MANUAL.",Highest,pratika,Sprint 2,"backend,bug",5
+38,Story,SECURITY: anyone can register as a professor,,authController.register trusts the role field from the request body. Gate professor sign-up (invite code or admin approval).,High,mansi,Sprint 2,"backend,security",1
+39,Story,Session report lists every student in the database,,"getSessionReport uses User.find({role:'student'}), so absentees include students from other classes. Add class/batch to sessions or enroll students per subject.",Medium,aakansha,Sprint 3,backend,5
+40,Story,Validate QR token before the device check; honour is_active,,markAttendance runs the device check first and never reads is_active. Reorder checks and return clearer errors.,Medium,krishna,Sprint 3,backend,4
+41,Story,Backend config: default PORT and fail fast on missing JWT_SECRET/MONGO_URI,,server.js has no PORT fallback (listen(undefined) picks a random port). Validate env at startup.,Medium,krishna,Sprint 3,"backend,devops",6
