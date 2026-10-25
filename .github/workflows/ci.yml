@@ -1,0 +1,23 @@
+name: Smart Attendance CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    name: Validate Project Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify Docker configuration
+        run: |
+          test -f docker-compose.yml
+          test -f backend/Dockerfile
+          test -f frontend/frontend/Dockerfile
+          echo "Docker configuration files found."
